@@ -164,9 +164,32 @@ npm run build
 
 Tests cover health, seeding, uploads, chunking, generation, supported and unsupported evaluation, contradiction detection, missing topics, feedback, learning memory, and analytics.
 
+### Verification status
+
+- Backend tests: 15 passed
+- Frontend production build: passed
+- Dependency audit: 0 vulnerabilities
+- Live backend/frontend smoke test: passed (good summary trust 88.4, negative test trust 27.0)
+
 ## Screenshots
 
-The interface is designed for a live local demo. Add captured landing, trust-card, failed-meeting-note, learning-memory, and analytics screens to `docs/screenshots/` when preparing a portfolio post.
+Captured from a live local run with seeded demo data (see [docs/screenshots/](docs/screenshots/)).
+
+| Landing | Document library |
+| --- | --- |
+| ![Landing](docs/screenshots/01-landing.png) | ![Library](docs/screenshots/02-library.png) |
+
+| High-trust Trust Card (88) | Claim-level evidence |
+| --- | --- |
+| ![High trust card](docs/screenshots/03-high-trust-card.png) | ![Claim evidence](docs/screenshots/04-claim-evidence.png) |
+
+| Low-trust negative test (27) | Missing-topics coverage gaps |
+| --- | --- |
+| ![Low trust negative test](docs/screenshots/05-low-trust-negative-test.png) | ![Missing topics](docs/screenshots/06-missing-topics.png) |
+
+| Learning memory | Reliability analytics |
+| --- | --- |
+| ![Learning memory](docs/screenshots/07-learning-memory.png) | ![Analytics](docs/screenshots/08-analytics-dashboard.png) |
 
 ## Future Roadmap
 
