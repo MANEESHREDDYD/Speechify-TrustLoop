@@ -9,6 +9,7 @@ import {
 import LoadingState from "@/components/LoadingState";
 import PageHeader from "@/components/PageHeader";
 import { api } from "@/lib/api";
+import { confirmDestructiveDemoReset } from "@/lib/demoReset";
 import { label } from "@/lib/format";
 
 type Overview = {
@@ -43,7 +44,11 @@ export default function AnalyticsPage() {
     ]);
     setOverview(summary); setByType(types.map((item) => ({ ...item, output_type: label(item.output_type) }))); setTopics(missing);
   }
-  async function seed() { await api("/api/demo/seed", { method: "POST" }); load(); }
+  async function seed() {
+    if (!confirmDestructiveDemoReset()) return;
+    await api("/api/demo/seed", { method: "POST" });
+    load();
+  }
   useEffect(() => { load(); }, []);
 
   const feedbackData = Object.entries(overview?.feedback_distribution || {}).map(([name, value]) => ({ name: label(name), value }));
@@ -51,9 +56,9 @@ export default function AnalyticsPage() {
     <div className="page">
       <PageHeader
         eyebrow="Quality operations"
-        title="Reliability analytics"
-        description="A portfolio view of grounding, risk, coverage gaps, and human feedback across AI-generated work."
-        actions={<button className="secondary-button" onClick={seed}><Database size={16} /> Refresh demo data</button>}
+        title="Review analytics"
+        description="A portfolio view of heuristic source-overlap, coverage-gap, and feedback signals across generated work."
+        actions={<button className="secondary-button" onClick={seed}><Database size={16} /> Replace demo data</button>}
       />
       {!overview ? <LoadingState /> : (
         <>
@@ -61,12 +66,12 @@ export default function AnalyticsPage() {
             <article className="stat-card"><Database size={19} /><span>Documents</span><strong>{overview.documents_count}</strong><small>source packs indexed</small></article>
             <article className="stat-card"><FileCheck2 size={19} /><span>Evaluations</span><strong>{overview.evaluations_count}</strong><small>{overview.outputs_count} AI outputs</small></article>
             <article className="stat-card accent"><Gauge size={19} /><span>Average trust</span><strong>{overview.average_trust_score}</strong><small>across all output types</small></article>
-            <article className="stat-card risk"><ShieldAlert size={19} /><span>Hallucination risk</span><strong>{Math.round(overview.average_hallucination_risk * 100)}%</strong><small>portfolio average</small></article>
+            <article className="stat-card risk"><ShieldAlert size={19} /><span>Flagged-claim risk</span><strong>{Math.round(overview.average_hallucination_risk * 100)}%</strong><small>heuristic portfolio average</small></article>
           </div>
 
           <div className="analytics-grid">
             <section className="panel chart-panel wide">
-              <div className="panel-heading"><div><span className="eyebrow">Model quality</span><h2>Trust by output type</h2></div><BarChart3 size={19} /></div>
+              <div className="panel-heading"><div><span className="eyebrow">Heuristic review</span><h2>Review score by output type</h2></div><BarChart3 size={19} /></div>
               <div className="chart-box">
                 <ResponsiveContainer width="100%" height="100%">
                   <BarChart data={byType} margin={{ top: 8, right: 10, left: -20, bottom: 10 }}>
@@ -107,4 +112,3 @@ export default function AnalyticsPage() {
     </div>
   );
 }
-

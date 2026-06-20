@@ -6,7 +6,16 @@ from sqlalchemy import delete, func, select
 from sqlalchemy.orm import Session
 
 from app.database import get_session
-from app.models import AIOutput, Document, DocumentChunk, User
+from app.models import (
+    AIOutput,
+    ClaimCheck,
+    Document,
+    DocumentChunk,
+    EvaluationRun,
+    MissingTopic,
+    User,
+    UserFeedback,
+)
 from app.services.chunker import chunk_document
 from app.services.document_parser import clean_text, parse_docx, parse_pdf
 from app.services.evaluator import latest_evaluation
@@ -63,7 +72,7 @@ async def upload_document(file: UploadFile = File(...), user_id: str = "demo-use
     session.add(document)
     session.flush()
     for item in chunk_document(text):
-        session.add(DocumentChunk(id=new_id("chunk"), document_id=document.id, **item, embedding_ref="lexical-local"))
+        session.add(DocumentChunk(id=new_id("chunk"), document_id=document.id, **item, retrieval_ref="lexical-only"))
     session.commit()
     return document_json(session, document)
 
@@ -97,9 +106,28 @@ def delete_document(document_id: str, session: Session = Depends(get_session)):
     document = session.get(Document, document_id)
     if not document:
         raise HTTPException(404, "Document not found")
-    session.execute(delete(DocumentChunk).where(DocumentChunk.document_id == document_id))
+
+    output_ids = list(session.scalars(select(AIOutput.id).where(AIOutput.document_id == document_id)).all())
+    evaluation_ids = set(
+        session.scalars(select(EvaluationRun.id).where(EvaluationRun.document_id == document_id)).all()
+    )
+    if output_ids:
+        evaluation_ids.update(
+            session.scalars(
+                select(EvaluationRun.id).where(EvaluationRun.output_id.in_(output_ids))
+            ).all()
+        )
+
+    if evaluation_ids:
+        session.execute(delete(ClaimCheck).where(ClaimCheck.evaluation_run_id.in_(evaluation_ids)))
+        session.execute(delete(MissingTopic).where(MissingTopic.evaluation_run_id.in_(evaluation_ids)))
+    if output_ids:
+        session.execute(delete(UserFeedback).where(UserFeedback.output_id.in_(output_ids)))
+
+    if evaluation_ids:
+        session.execute(delete(EvaluationRun).where(EvaluationRun.id.in_(evaluation_ids)))
     session.execute(delete(AIOutput).where(AIOutput.document_id == document_id))
+    session.execute(delete(DocumentChunk).where(DocumentChunk.document_id == document_id))
     session.delete(document)
     session.commit()
     return {"status": "deleted"}
-

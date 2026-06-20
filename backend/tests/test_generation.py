@@ -3,7 +3,7 @@ def first_document(client, title):
 
 
 def generate(client, path, document_id):
-    return client.post(path, json={"document_id": document_id, "user_id": "demo-user", "mode": "deterministic"})
+    return client.post(path, json={"document_id": document_id, "user_id": "demo-user"})
 
 
 def test_generate_summary(seeded_client):
@@ -30,4 +30,3 @@ def test_generate_meeting_notes(seeded_client):
     assert "July 15" in text
     assert "| Priya |" in text
     assert "Privacy review is required" in text
-

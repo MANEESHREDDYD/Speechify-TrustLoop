@@ -3,7 +3,7 @@ from sqlalchemy.orm import Session
 
 from app.config import DEMO_DATA_DIR
 from app.models import (
-    AIOutput, AnalyticsEvent, ClaimCheck, Document, DocumentChunk, EvaluationRun,
+    AIOutput, ClaimCheck, Document, DocumentChunk, EvaluationRun,
     LearningMemory, MissingTopic, User, UserFeedback,
 )
 from app.services.chunker import chunk_document
@@ -23,7 +23,7 @@ DEMO_FILES = {
 
 def reset_demo(session: Session) -> None:
     for model in (
-        AnalyticsEvent, LearningMemory, UserFeedback, MissingTopic, ClaimCheck,
+        LearningMemory, UserFeedback, MissingTopic, ClaimCheck,
         EvaluationRun, AIOutput, DocumentChunk, Document, User,
     ):
         session.execute(delete(model))
@@ -46,7 +46,7 @@ def _add_document(session: Session, relative: str, category: str) -> Document:
     session.add(document)
     session.flush()
     for item in chunk_document(text):
-        session.add(DocumentChunk(id=new_id("chunk"), document_id=document.id, **item, embedding_ref="lexical-local"))
+        session.add(DocumentChunk(id=new_id("chunk"), document_id=document.id, **item, retrieval_ref="lexical-only"))
     return document
 
 
@@ -101,4 +101,3 @@ def seed_demo(session: Session) -> dict:
         "outputs_count": len(all_ids),
         "negative_test_output_ids": negative_ids,
     }
-

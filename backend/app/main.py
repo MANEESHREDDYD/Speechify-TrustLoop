@@ -17,7 +17,7 @@ async def lifespan(_: FastAPI):
 app = FastAPI(
     title="S TrustLoop API",
     description="S TrustLoop is an independent prototype for voice-first AI reliability.",
-    version="1.0.0",
+    version="1.0.1",
     lifespan=lifespan,
 )
 app.add_middleware(

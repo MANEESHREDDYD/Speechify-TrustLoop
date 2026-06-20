@@ -23,7 +23,7 @@ export default function OutputText({ text }: { text: string }) {
   return (
     <section className="panel output-panel">
       <div className="panel-heading">
-        <div><span className="eyebrow">Generated deliverable</span><h2>AI output</h2></div>
+        <div><span className="eyebrow">Generated deliverable</span><h2>Generated output</h2></div>
         <button className="secondary-button small" onClick={toggleSpeech}>
           {speaking ? <Square size={15} /> : <Play size={15} />}
           {speaking ? "Stop" : "Listen"}
@@ -41,4 +41,3 @@ export default function OutputText({ text }: { text: string }) {
     </section>
   );
 }
-

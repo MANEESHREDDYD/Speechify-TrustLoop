@@ -7,7 +7,6 @@ class GenerationRequest(BaseModel):
     document_id: str
     user_id: str = "demo-user"
     prompt: str = ""
-    mode: str = "deterministic"
 
 
 class AskRequest(GenerationRequest):
@@ -33,4 +32,3 @@ class FeedbackRequest(BaseModel):
 
 class LearningRecomputeRequest(BaseModel):
     user_id: str = "demo-user"
-

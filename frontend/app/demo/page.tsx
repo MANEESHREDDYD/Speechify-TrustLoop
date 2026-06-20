@@ -10,6 +10,7 @@ import { useEffect, useState } from "react";
 import LoadingState from "@/components/LoadingState";
 import PageHeader from "@/components/PageHeader";
 import { api, generateAndEvaluate } from "@/lib/api";
+import { confirmDestructiveDemoReset } from "@/lib/demoReset";
 import { DocumentRecord, OutputRecord } from "@/lib/types";
 
 const flows = [
@@ -18,7 +19,7 @@ const flows = [
     icon: BookOpenCheck,
     number: "01",
     title: "Student learning",
-    message: "Turn passive listening into measurable learning.",
+    message: "Turn passive listening into reviewable learning signals.",
     documentTitle: "Voice AI and Accessible Learning",
     outputType: "summary",
     button: "Generate grounded summary",
@@ -73,6 +74,7 @@ export default function DemoPage() {
     router.push(`/outputs/${outputId}`);
   }
   async function reset() {
+    if (!confirmDestructiveDemoReset()) return;
     setBusy("reset");
     await api("/api/demo/seed", { method: "POST" });
     await load();
@@ -85,8 +87,8 @@ export default function DemoPage() {
       <PageHeader
         eyebrow="3-minute product story"
         title="Guided S TrustLoop demo"
-        description="Three one-click flows showing how reliability changes learning, meetings, and AI-generated work."
-        actions={<button className="secondary-button" onClick={reset} disabled={!!busy}><Database size={16} /> Reset clean demo</button>}
+        description="Three one-click flows showing source-overlap review signals for learning, meetings, and generated work."
+        actions={<button className="secondary-button" onClick={reset} disabled={!!busy}><Database size={16} /> Replace with clean demo</button>}
       />
       {!documents ? <LoadingState label="Preparing the synthetic demo pack…" /> : (
         <>

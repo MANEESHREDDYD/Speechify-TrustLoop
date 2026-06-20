@@ -123,7 +123,6 @@ def generate_meeting_notes(document_text: str) -> str:
 
 def generate_work_report(document_text: str) -> str:
     sections = _sections(document_text)
-    mapped = {re.sub(r"^section\s+\d+\s*:\s*", "", h, flags=re.I): b for h, b in sections}
     findings = "\n".join(f"- **{name}:** {_first_sentence(body)}" for name, body in sections)
     competitor_body = next((body for name, body in sections if "competitor" in name.lower()), "")
     competitors = []
@@ -171,4 +170,3 @@ GENERATORS = {
     "meeting_notes": generate_meeting_notes,
     "work_report": generate_work_report,
 }
-

@@ -28,8 +28,8 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
             </Link>
           ))}
         </nav>
-        <div className="local-pill"><span /> Local-first engine</div>
-        <p className="sidebar-note">Independent voice-AI reliability research. No paid APIs or cloud dependency.</p>
+        <div className="local-pill"><span /> Local-first prototype</div>
+        <p className="sidebar-note">Independent lexical-review research. No paid APIs or cloud dependency.</p>
       </aside>
       <main className="main">{children}</main>
     </div>

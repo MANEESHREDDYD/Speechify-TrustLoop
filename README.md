@@ -2,44 +2,44 @@
 
 ## Overview
 
-S TrustLoop is a zero-budget, local-first reliability engine for AI-generated summaries, quizzes, podcast scripts, meeting notes, document answers, and work reports.
+S TrustLoop is a zero-budget, local-first portfolio prototype for reviewing generated summaries, quizzes, podcast scripts, meeting notes, document answers, and work reports against source text.
 
-It answers the question that appears after generation: **Can I trust this output, and can it show me why?**
+It demonstrates a transparent review workflow: split an output into claims, retrieve lexically similar source chunks, apply simple support and contradiction rules, surface missing topics, calculate heuristic review signals, and collect human feedback.
 
-S TrustLoop is an independent prototype for voice-first AI reliability. It explores how voice-first AI products can make generated outputs more grounded, reviewable, and trustworthy.
+> S TrustLoop is an independent prototype. It is not affiliated with, endorsed by, or integrated with any commercial voice-AI platform.
 
-S TrustLoop breaks an output into claims, retrieves relevant source chunks, classifies support, detects missing topics, calculates transparent quality metrics, and learns from human feedback.
+## What S TrustLoop Is and Is Not
 
-> S TrustLoop is an independent prototype. It is not affiliated with, endorsed by, or integrated with any commercial voice-AI platform. It focuses on reliability, grounding, evaluation, feedback, and analytics for voice-first AI workflows.
+S TrustLoop is a local-first portfolio prototype for exploring how AI-generated outputs can be reviewed against source text.
 
-## Why This Matters
+It uses deterministic generation, lexical claim-to-source matching, missing-topic detection, simple contradiction heuristics, feedback capture, and visual trust cards.
 
-Voice-first AI makes information easier to consume and work easier to produce. That convenience also makes confident omissions and hallucinations harder to notice. Consumer learners need comprehension checks; professionals need traceable meeting notes; enterprise teams need citations, auditability, privacy, and human review signals.
+It does not use an LLM, semantic embeddings, vector search, model training, or production-grade factuality checking. It is not production-ready or enterprise-ready.
 
-S TrustLoop makes those requirements visible and measurable.
+The scores are review indicators for the demo workflow. They are not proof that an output is factually correct.
 
-## How This Applies to Voice-First AI Products
+## Destructive Demo-Data Warning
 
-The prototype supports a clear product story:
+`POST /api/demo/seed` and `DELETE /api/demo/reset` replace the contents of the local prototype database. This includes uploaded documents.
 
-- Voice-first learning outputs become grounded summaries and source-relevant quizzes.
-- AI podcasts expose coverage gaps and retain links to source evidence.
-- Meeting notes make decisions, owners, dates, and risks auditable.
-- AI-agent reports gain an enterprise quality and feedback layer.
+Do not use demo seed/reset with important files. Treat this as a private localhost prototype with disposable data.
 
-## Features
+The frontend asks for confirmation before user-triggered replacement. Direct API calls remain destructive.
 
-- Synthetic demo document seeding and TXT, MD, PDF, or DOCX upload
-- Deterministic local generation for summaries, key points, quizzes, podcasts, meeting notes, work reports, and document Q&A
-- Claim-level evidence retrieval with supported, weak, unsupported, and contradicted states
-- Grounding, coverage, citation, readability, hallucination-risk, and task-fit metrics
-- Missing-topic detection
-- Human feedback capture
-- Personalized learning memory with strong topics, weak topics, and recap recommendations
-- Portfolio analytics by output type
+## Current Features
+
+- Ten synthetic source documents and three deliberately incorrect negative-test outputs
+- TXT, Markdown, PDF, and DOCX upload
+- Deterministic local generation for summaries, key points, quizzes, podcast scripts, meeting notes, work reports, and document Q&A
+- Lexical claim-to-source retrieval
+- Supported, weakly supported, unsupported, and contradicted review states
+- Source-overlap, coverage, evidence-availability, readability, and flagged-claim indicators
+- Heading and term-based missing-topic detection
+- Simple date, owner, and negated-requirement contradiction rules
+- Human feedback storage and aggregate feedback analytics
+- Demo topic-memory signals and recap prompts
 - Browser speech synthesis for output preview
-- Three guided one-click demo flows
-- Deliberately incorrect negative tests that demonstrate S TrustLoop catching failures
+- Three guided demo flows
 
 ## Architecture
 
@@ -49,50 +49,45 @@ Next.js UI
 FastAPI routes
    |
    +-- document parser -> section-aware chunks -> SQLite
-   +-- deterministic output generator
-   +-- claim splitter -> lexical retrieval -> contradiction heuristics
-   +-- topic coverage -> transparent scoring
-   +-- feedback -> learning memory -> analytics
+   +-- deterministic output templates
+   +-- claim splitter -> lexical retrieval -> simple contradiction rules
+   +-- topic coverage -> transparent heuristic scoring
+   +-- feedback storage -> aggregate analytics + demo topic signals
 ```
 
-The core path has no network requirement and downloads no model. A small hashed embedding utility and lexical retrieval make startup immediate and deterministic.
+The live path does not download or call a model. Retrieval is lexical. There is no embedding model or vector database.
 
 See [docs/architecture.md](docs/architecture.md).
 
-## Zero-Budget Stack
+## Stack
 
 - Next.js, TypeScript, Tailwind CSS, Recharts
 - FastAPI, SQLAlchemy, SQLite, Pydantic
-- PyMuPDF and python-docx for local file parsing
+- PyMuPDF and python-docx for local parsing
 - Browser SpeechSynthesis API
 - Pytest
 
 No paid AI, voice, or cloud API is required.
 
-## Demo Flows
+## Trust-Score Methodology
 
-1. **Student learning:** generate a grounded summary or quiz, inspect missing concepts, then view the learner's weak-topic memory.
-2. **Meeting notes:** generate decisions and action items, inspect evidence, then open the incorrect seeded notes to see wrong dates, owners, and requirements flagged.
-3. **AI work report:** generate a strategic market report, inspect claim evidence, and open the portfolio analytics dashboard.
-
-The full talk track is in [docs/demo-script.md](docs/demo-script.md).
-
-## Trust Score Methodology
-
-The score is intentionally transparent:
+The current score is a fixed heuristic:
 
 ```text
-35% grounding
+35% lexical claim support
 25% source-topic coverage
-15% citation/evidence availability
+15% retrieved-evidence availability
 10% readability and structure
-10% human feedback prior
- 5% task-specific quality
+10% fixed neutral feedback prior
+ 5% output-format checks
 ```
 
-Unsupported and contradicted claims separately increase hallucination risk. The score prioritizes human review; it is not a claim of mathematical certainty.
+Feedback is stored and shown in analytics. It does not currently change an existing trust score or train a model.
 
-See [docs/trust-score-methodology.md](docs/trust-score-methodology.md).
+See:
+
+- [Trust score methodology](docs/trust-score-methodology.md)
+- [Limitations and production roadmap](docs/limitations-and-production-roadmap.md)
 
 ## Data Model
 
@@ -100,22 +95,25 @@ SQLite stores:
 
 - users
 - documents and document chunks
-- AI outputs
+- generated outputs
 - evaluation runs
-- claim checks and source evidence
-- missing topics
+- claim checks and retrieved source text
+- missing-topic rows
 - user feedback
-- learning memory
-- analytics events
+- demo learning-memory rows
 
-## API Routes
+Tests use a separate temporary SQLite database and do not reset the normal development database.
+
+## API
 
 Key routes:
 
 - `GET /health`
 - `POST /api/demo/seed`
+- `DELETE /api/demo/reset`
 - `GET /api/documents`
 - `POST /api/documents/upload`
+- `DELETE /api/documents/{document_id}`
 - `POST /api/generate/{output-type}`
 - `POST /api/ask`
 - `POST /api/evaluate/{output_id}`
@@ -126,11 +124,11 @@ Key routes:
 - `GET /api/learning-memory/{user_id}`
 - `GET /api/analytics/overview`
 
-FastAPI exposes the full interactive schema at `http://localhost:8000/docs`.
+FastAPI exposes the interactive schema at `http://localhost:8000/docs`.
 
 ## Local Setup
 
-### 1. Backend
+### Backend
 
 ```bash
 cd backend
@@ -140,9 +138,7 @@ pip install -r requirements.txt
 uvicorn app.main:app --reload
 ```
 
-### 2. Frontend
-
-In another terminal:
+### Frontend
 
 ```bash
 cd frontend
@@ -150,62 +146,37 @@ npm install
 npm run dev
 ```
 
-Open `http://localhost:3000`, click **Seed demo data**, and choose **Guided demo**.
+Open `http://localhost:3000`.
 
-Environment defaults are documented in `.env.example`. Docker Compose is included as an optional convenience.
-
-## Testing
+## Verification
 
 ```bash
 cd backend
-pytest
+python -m pytest
 
 cd ../frontend
 npm run build
+npm audit
 ```
 
-Tests cover health, seeding, uploads, chunking, generation, supported and unsupported evaluation, contradiction detection, missing topics, feedback, learning memory, and analytics.
+The previous interactive `next lint` script was removed because ESLint is not configured. The production build still performs TypeScript validation.
 
-### Verification status
+## Demo Flows
 
-- Backend tests: 15 passed
-- Frontend production build: passed
-- Dependency audit: 0 vulnerabilities
-- Live backend/frontend smoke test: passed (good summary trust 88.4, negative test trust 27.0)
+1. **Student review:** generate a summary, inspect source overlap and coverage gaps, then open the demo topic signals.
+2. **Meeting notes:** generate structured notes, inspect retrieved evidence, then open the curated wrong-notes example.
+3. **Work report:** generate a deterministic report, inspect flagged claims, and open aggregate review analytics.
+
+The negative tests are synthetic and intentionally easy to detect. They demonstrate the interface and rule behavior; they do not prove generalization.
+
+See [docs/demo-script.md](docs/demo-script.md).
 
 ## Screenshots
 
-Captured from a live local run with seeded demo data (see [docs/screenshots/](docs/screenshots/)).
+Screenshots in [docs/screenshots](docs/screenshots) were captured from a live seeded run. They predate the V1.0.1 wording cleanup, so the layout and scores remain representative while some labels differ from the current interface.
 
-| Landing | Document library |
-| --- | --- |
-| ![Landing](docs/screenshots/01-landing.png) | ![Library](docs/screenshots/02-library.png) |
+## Honest Portfolio Positioning
 
-| High-trust Trust Card (88) | Claim-level evidence |
-| --- | --- |
-| ![High trust card](docs/screenshots/03-high-trust-card.png) | ![Claim evidence](docs/screenshots/04-claim-evidence.png) |
+> Built S TrustLoop, a local-first portfolio prototype that uses deterministic generation, lexical source matching, missing-topic checks, simple contradiction rules, feedback capture, and a Next.js review interface to explore how generated outputs could be made more inspectable.
 
-| Wrong meeting-notes test (56) | Incomplete podcast coverage gaps (27) |
-| --- | --- |
-| ![Low trust negative test](docs/screenshots/05-low-trust-negative-test.png) | ![Missing topics](docs/screenshots/06-missing-topics.png) |
-
-| Learning memory | Reliability analytics |
-| --- | --- |
-| ![Learning memory](docs/screenshots/07-learning-memory.png) | ![Analytics](docs/screenshots/08-analytics-dashboard.png) |
-
-## Future Roadmap
-
-1. Real-time voice input evaluation
-2. Browser extension for evaluating web summaries
-3. Enterprise audit export
-4. Team-level quality dashboards
-5. Personalized daily audio recap generation
-6. Deeper contradiction detection
-7. Model comparison dashboard
-8. Human review workflow
-9. Integrations with calendar, docs, and meeting tools
-10. Privacy-first on-device evaluation mode
-
-## Resume Positioning
-
-> Built S TrustLoop, a zero-budget AI reliability engine that evaluates summaries, quizzes, AI podcast scripts, meeting notes, and agent-generated reports for source grounding, coverage, hallucination risk, citation quality, missing topics, and user feedback using FastAPI, SQLite, retrieval, Next.js, and analytics dashboards.
+This is a demo-ready portfolio prototype, not a production factuality service.

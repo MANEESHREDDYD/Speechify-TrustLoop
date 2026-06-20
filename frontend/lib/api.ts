@@ -28,9 +28,8 @@ export const outputPath: Record<string, string> = {
 export async function generateAndEvaluate(documentId: string, outputType: string) {
   const output = await api<{ output_id: string }>(`/api/generate/${outputPath[outputType]}`, {
     method: "POST",
-    body: JSON.stringify({ document_id: documentId, user_id: "demo-user", mode: "deterministic" }),
+    body: JSON.stringify({ document_id: documentId, user_id: "demo-user" }),
   });
   await api(`/api/evaluate/${output.output_id}`, { method: "POST" });
   return output.output_id;
 }
-

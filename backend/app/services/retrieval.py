@@ -1,4 +1,3 @@
-import math
 from collections import Counter
 
 from sqlalchemy import select
@@ -46,4 +45,3 @@ def retrieve_top_k(session: Session, query: str, document_id: str, k: int = 3) -
         reverse=True,
     )
     return ranked[:k]
-

@@ -2,6 +2,8 @@
 
 Captured from a live local run (Next.js frontend + FastAPI backend, seeded demo data).
 
+These images predate the V1.0.1 wording cleanup. Layout and observed scores remain representative, but current UI labels describe the metrics as heuristic review signals rather than production reliability measures.
+
 | File | View |
 | --- | --- |
 | `01-landing.png` | Landing page and product story |
@@ -10,9 +12,11 @@ Captured from a live local run (Next.js frontend + FastAPI backend, seeded demo 
 | `04-claim-evidence.png` | Claim-level evidence map with supported and flagged claims |
 | `05-low-trust-negative-test.png` | Wrong meeting-notes test (score 56, contradictions and human review recommended) |
 | `06-missing-topics.png` | Incomplete podcast coverage-gap panel (score 27) |
-| `07-learning-memory.png` | Personalized learning memory with weak topics and recaps |
-| `08-analytics-dashboard.png` | Reliability analytics dashboard |
+| `07-learning-memory.png` | Demo topic signals with review targets and recap prompts |
+| `08-analytics-dashboard.png` | Aggregate review analytics dashboard |
 
 The high-trust summary (Voice AI and Accessible Learning) scores **88.4**. The wrong meeting notes
 score **55.8** with explicit contradictions, while the incomplete podcast scores **27.0** and exposes
 major coverage gaps.
+
+The synthetic examples demonstrate the interface and fixed rules. They do not prove generalization.

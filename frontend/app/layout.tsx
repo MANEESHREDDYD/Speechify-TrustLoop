@@ -4,10 +4,10 @@ import AppShell from "@/components/AppShell";
 
 export const metadata: Metadata = {
   title: "S TrustLoop",
-  description: "Independent AI reliability engine for voice-first learning, meetings, podcasts, and work agents.",
+  description: "Independent local prototype for reviewing generated voice-first learning and work outputs against source text.",
   openGraph: {
     title: "S TrustLoop",
-    description: "S TrustLoop is an independent prototype for voice-first AI reliability.",
+    description: "S TrustLoop is an independent local prototype for lexical source review.",
     type: "website",
   },
 };

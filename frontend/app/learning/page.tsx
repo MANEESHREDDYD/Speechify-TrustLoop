@@ -33,9 +33,9 @@ export default function LearningPage() {
   return (
     <div className="page">
       <PageHeader
-        eyebrow="Personalized learning memory"
-        title="What the learner knows"
-        description="S TrustLoop turns evaluation gaps and quiz activity into a private, inspectable memory of strong and weak topics."
+        eyebrow="Demo learning signals"
+        title="Topics to review"
+        description="A heuristic demo that groups source topics, quiz topics, coverage gaps, and feedback into inspectable review signals. It does not measure learning."
         actions={<button className="secondary-button" onClick={() => load(true)}><RefreshCw size={16} /> Recompute memory</button>}
       />
       {!memory ? <LoadingState /> : (
@@ -43,7 +43,7 @@ export default function LearningPage() {
           <div className="learning-overview">
             <div className="learning-hero panel">
               <div className="brain-orb"><BrainCircuit size={34} /></div>
-              <div><span className="eyebrow">Local learner profile</span><h2>{memory.documents_studied} documents studied</h2><p>Built from source topics, generated quizzes, missing concepts, and explicit feedback.</p></div>
+              <div><span className="eyebrow">Local demo profile</span><h2>{memory.documents_studied} documents indexed</h2><p>Rule-based signals from source topics, generated quizzes, missing concepts, and explicit feedback.</p></div>
             </div>
             <div className="memory-stat panel"><Target size={21} /><strong>{memory.strong_topics.length}</strong><span>strong topics</span></div>
             <div className="memory-stat panel"><BookOpen size={21} /><strong>{memory.weak_topics.length}</strong><span>review targets</span></div>
@@ -51,7 +51,7 @@ export default function LearningPage() {
 
           <div className="learning-grid">
             <section className="panel topic-strength-panel">
-              <div className="panel-heading"><div><span className="eyebrow">Confident knowledge</span><h2>Strong topics</h2></div></div>
+              <div className="panel-heading"><div><span className="eyebrow">Higher demo signal</span><h2>Stronger topic signals</h2></div></div>
               <div className="strength-list">
                 {memory.strong_topics.map((topic) => (
                   <div key={topic.topic}>
@@ -63,7 +63,7 @@ export default function LearningPage() {
               </div>
             </section>
             <section className="panel topic-strength-panel weak">
-              <div className="panel-heading"><div><span className="eyebrow">Needs reinforcement</span><h2>Weak topics</h2></div></div>
+              <div className="panel-heading"><div><span className="eyebrow">Lower demo signal</span><h2>Review targets</h2></div></div>
               <div className="strength-list">
                 {memory.weak_topics.map((topic) => (
                   <div key={topic.topic}>

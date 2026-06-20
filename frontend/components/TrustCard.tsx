@@ -5,9 +5,9 @@ import { TrustCardData } from "@/lib/types";
 export default function TrustCard({ data }: { data: TrustCardData }) {
   const tone = scoreTone(data.trust_score);
   const metrics = [
-    ["Grounding", data.grounding_score],
+    ["Source overlap", data.grounding_score],
     ["Coverage", data.coverage_score],
-    ["Citation quality", data.citation_score],
+    ["Evidence availability", data.citation_score],
     ["Readability", data.readability_score],
   ] as const;
   return (
@@ -17,8 +17,8 @@ export default function TrustCard({ data }: { data: TrustCardData }) {
       </div>
       <div className="trust-summary">
         <span className={`status-label ${tone}`}>{data.label}</span>
-        <h2>Trust score</h2>
-        <p>Transparent evidence-based quality check for this output.</p>
+        <h2>Heuristic review score</h2>
+        <p>Transparent lexical and rule-based review signal for this output.</p>
         <div className="metric-bars">
           {metrics.map(([name, value]) => (
             <div className="metric-row" key={name}>
@@ -32,9 +32,8 @@ export default function TrustCard({ data }: { data: TrustCardData }) {
         <div><CheckCircle2 size={17} /><span><b>{data.supported_claims}</b> supported</span></div>
         <div><CircleDashed size={17} /><span><b>{data.weakly_supported_claims}</b> weak</span></div>
         <div><AlertTriangle size={17} /><span><b>{data.unsupported_claims + data.contradicted_claims}</b> flagged</span></div>
-        <div><Link2 size={17} /><span><b>{percent(data.hallucination_risk)}</b> hallucination risk</span></div>
+        <div><Link2 size={17} /><span><b>{percent(data.hallucination_risk)}</b> flagged-claim risk</span></div>
       </div>
     </section>
   );
 }
-

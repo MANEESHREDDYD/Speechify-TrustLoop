@@ -1,6 +1,5 @@
 import re
 
-from app.services.retrieval import lexical_similarity
 from app.utils.text_utils import sentences, words
 
 
@@ -69,4 +68,3 @@ def classify_claim(claim: str, retrieved: list[dict]) -> dict:
         "supporting_chunk_id": best.get("id") if score >= 0.35 else None,
         "supporting_text": best.get("text", "") if score >= 0.35 else "",
     }
-

@@ -41,7 +41,8 @@ class DocumentChunk(Base):
     section_title: Mapped[str] = mapped_column(Text, default="")
     text: Mapped[str] = mapped_column(Text)
     token_estimate: Mapped[int] = mapped_column(Integer)
-    embedding_ref: Mapped[str] = mapped_column(Text, default="lexical-local")
+    # The legacy database column is named embedding_ref; it stores only a lexical-pipeline marker.
+    retrieval_ref: Mapped[str] = mapped_column("embedding_ref", Text, default="lexical-only")
     created_at: Mapped[str] = mapped_column(Text, default=now_iso)
 
 
@@ -113,15 +114,3 @@ class LearningMemory(Base):
     quiz_accuracy: Mapped[float] = mapped_column(Float, default=0.0)
     last_seen_at: Mapped[str] = mapped_column(Text, default=now_iso)
     source_document_count: Mapped[int] = mapped_column(Integer, default=1)
-
-
-class AnalyticsEvent(Base):
-    __tablename__ = "analytics_events"
-    id: Mapped[str] = mapped_column(Text, primary_key=True)
-    user_id: Mapped[str] = mapped_column(Text)
-    event_type: Mapped[str] = mapped_column(Text)
-    entity_type: Mapped[str] = mapped_column(Text)
-    entity_id: Mapped[str] = mapped_column(Text)
-    metadata_json: Mapped[str] = mapped_column(Text, default="{}")
-    created_at: Mapped[str] = mapped_column(Text, default=now_iso)
-

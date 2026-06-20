@@ -28,13 +28,13 @@ def calculate_scores(claims: list[dict], source_topics: int, missing_topics: int
         task_score = 0.95 if "Action Items" in generated_text and "| Owner |" in generated_text else 0.55
     elif output_type == "quiz":
         task_score = 0.95 if "Answer:" in generated_text and "Source topic:" in generated_text else 0.55
-    feedback_score = 0.75
+    feedback_prior = 0.75
     trust = (
         0.35 * grounding
         + 0.25 * coverage
         + 0.15 * citation
         + 0.10 * readability
-        + 0.10 * feedback_score
+        + 0.10 * feedback_prior
         + 0.05 * task_score
     ) * 100
     return {
@@ -51,4 +51,3 @@ def calculate_scores(claims: list[dict], source_topics: int, missing_topics: int
         "unsupported_claims": unsupported,
         "contradicted_claims": contradicted,
     }
-
