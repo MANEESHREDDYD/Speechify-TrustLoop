@@ -1,0 +1,20 @@
+Title: AI Podcasts for Learning
+
+Section 1: Benefits
+AI-generated podcasts can make dense material easier to consume by turning documents into conversational explanations.
+
+Section 2: Limitations
+Podcasts can oversimplify technical material if the system does not preserve important details.
+
+Section 3: Cognitive Load
+A good learning podcast should reduce cognitive load but still provide enough structure for review.
+
+Section 4: Personalization
+The best podcast experience adapts to the learner's weak topics, preferred pace, and recent study history.
+
+Section 5: Source Grounding
+Podcast claims should be grounded in the uploaded document so users can trust what they hear.
+
+Section 6: Quiz Follow-up
+After listening, users should receive quiz questions to confirm understanding.
+

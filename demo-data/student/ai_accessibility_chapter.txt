@@ -1,0 +1,20 @@
+Title: Voice AI and Accessible Learning
+
+Section 1: Reading Fatigue
+Many students experience reading fatigue when processing long academic material. Audio support can reduce friction by letting students listen while following highlighted text.
+
+Section 2: Dyslexia and Decoding Difficulty
+Students with dyslexia may understand concepts well but struggle with decoding written text. Text-to-speech can reduce decoding load and help them focus on meaning.
+
+Section 3: Audio and Visual Highlighting
+Combining spoken audio with synchronized visual highlighting can improve focus, retention, and reading confidence.
+
+Section 4: Active Recall Through Quizzes
+Quizzes help students move from passive listening to active recall. A good system should generate questions that are directly grounded in the source material.
+
+Section 5: Risks of Passive Listening
+Listening alone may create an illusion of understanding. Students need recaps, checks for comprehension, and opportunities to explain concepts.
+
+Section 6: Privacy and Student Data
+Learning tools must protect student data, especially when documents, notes, and learning patterns are stored for personalization.
+

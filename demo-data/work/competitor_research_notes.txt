@@ -1,0 +1,10 @@
+Title: Synthetic Voice AI Competitor Notes
+
+ReadFlow AI provides reading and summary workflows but no claim evidence.
+DictaNote Pro focuses on dictation and rewriting for individual professionals.
+PodBrief creates short audio explainers but has limited coverage controls.
+MeetingMind extracts decisions and action items from meetings.
+VoiceDesk builds voice agents for customer support teams.
+
+Across the category, enterprise buyers ask for privacy, audit logs, access controls, and reliable citations.
+

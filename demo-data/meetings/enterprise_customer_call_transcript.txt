@@ -1,0 +1,14 @@
+Title: Enterprise Customer Trust Review
+
+Attendees:
+Nora - Account Executive
+Alex - Security Lead
+Mei - Customer Operations
+
+Transcript:
+Nora: The customer wants a pilot with twenty users beginning August 4.
+Alex: Security review must finish before any production document is uploaded.
+Mei: I will prepare the pilot onboarding guide by July 28.
+Alex: The audit export needs source citations, reviewer identity, and timestamps.
+Nora: Decision confirmed. We will use synthetic documents until security approval.
+

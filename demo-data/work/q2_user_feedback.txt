@@ -1,0 +1,7 @@
+Title: Q2 Synthetic User Feedback
+
+Students liked listening while highlighting text but asked for quick comprehension checks.
+Professionals valued meeting summaries but wanted owners and due dates to be traceable to the transcript.
+Enterprise reviewers asked for citations, missing-topic alerts, audit exports, and privacy controls.
+Several users said confident wording made unsupported answers difficult to notice.
+

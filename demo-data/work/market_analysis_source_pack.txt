@@ -1,0 +1,24 @@
+Title: Voice-first Productivity Market Analysis
+
+Section 1: Market Overview
+Voice-first productivity tools are expanding from transcription and dictation into AI agents that summarize, research, write, and prepare work deliverables.
+
+Section 2: User Personas
+Students need faster study workflows. Professionals need meeting notes, document summaries, and reports. Enterprise teams need auditability, privacy, and collaboration.
+
+Section 3: Synthetic Competitors
+ReadFlow AI focuses on document reading and summaries.
+DictaNote Pro focuses on voice typing and grammar cleanup.
+PodBrief turns documents into short audio briefings.
+MeetingMind focuses on meeting notes and action items.
+VoiceDesk focuses on customer support voice agents.
+
+Section 4: Feature Gaps
+Many tools generate content but do not show whether the output is grounded in source material. Few tools expose claim-level evidence or missing-topic detection.
+
+Section 5: Enterprise Risks
+Enterprise users need data privacy, access controls, audit trails, citation quality, and reliable evaluation of AI outputs.
+
+Section 6: Accessibility Opportunity
+Voice-first tools can help users with dyslexia, ADHD, low vision, and reading fatigue. The product should support personalization without exposing sensitive data.
+

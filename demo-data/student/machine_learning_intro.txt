@@ -1,0 +1,14 @@
+Title: A Practical Introduction to Machine Learning
+
+Section 1: Definition
+Machine learning uses examples in data to learn patterns that support predictions or decisions.
+
+Section 2: Training and testing
+Training data teaches a model while separate test data estimates how well it generalizes to unseen examples.
+
+Section 3: Common risks
+Biased data, overfitting, data leakage, and weak evaluation can make a model look more reliable than it is.
+
+Section 4: Human review
+High-impact systems need transparent metrics, documented limitations, and meaningful human oversight.
+

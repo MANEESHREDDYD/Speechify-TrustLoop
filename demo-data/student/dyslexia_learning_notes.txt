@@ -1,0 +1,14 @@
+Title: Designing for Dyslexic Learners
+
+Section 1: Reduce decoding pressure
+Audio narration can reduce the effort spent decoding words so learners can focus on concepts and meaning.
+
+Section 2: Keep visual context
+Synchronized highlighting helps learners keep their place and connect spoken language with written text.
+
+Section 3: Check comprehension
+Short source-grounded questions, recaps, and learner explanations reveal whether listening produced real understanding.
+
+Section 4: Respect privacy
+Personalization should use the minimum learning data required and give learners control over stored history.
+

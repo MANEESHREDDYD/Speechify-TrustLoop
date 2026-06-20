@@ -1,0 +1,20 @@
+Title: Voice AI Meeting Notes Product Launch
+
+Attendees:
+Maya - Product Manager
+Leo - Engineering Lead
+Priya - Designer
+Sam - Data Engineer
+Jordan - Customer Success
+
+Transcript:
+Maya: We need to finalize the beta launch date. Based on QA progress, July 15 is realistic.
+Leo: Engineering can finish transcript chunking by July 5.
+Priya: I will design the Trust Card UI and claim evidence panel by July 7.
+Sam: I will build the analytics tables for trust score, unsupported claims, and missing topics by July 8.
+Jordan: I can collect 10 enterprise customer transcripts for testing by July 10.
+Maya: Decision confirmed. Beta launch is July 15, enterprise users first.
+Leo: We also need citation view before launch.
+Sam: Privacy review is required before we use any customer transcript.
+Maya: Good. Final decisions are July 15 launch, enterprise beta first, citation view required, PDF export required, and privacy review before launch.
+

@@ -1,0 +1,8 @@
+# Meeting Notes
+
+The team decided to launch on July 1.
+Priya owns the analytics tables.
+Leo will collect enterprise customer transcripts.
+The product will launch to all users first.
+No privacy review is needed.
+

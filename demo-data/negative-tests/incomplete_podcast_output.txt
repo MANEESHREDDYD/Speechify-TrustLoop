@@ -1,0 +1,7 @@
+# Podcast Script
+
+Host 1: AI podcasts are fun and easy to listen to.
+Host 2: They make studying more enjoyable.
+Host 1: The main benefit is convenience.
+Host 2: That's all for today.
+

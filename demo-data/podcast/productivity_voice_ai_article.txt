@@ -1,0 +1,6 @@
+Title: Voice AI for Productive Work
+
+Voice interfaces can reduce the friction of capturing ideas and reviewing long documents.
+AI-generated briefings are most useful when they preserve source nuance, identify uncertainty, and link claims back to evidence.
+Teams also need privacy controls and clear boundaries between generated suggestions and verified facts.
+
