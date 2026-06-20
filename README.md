@@ -1,29 +1,31 @@
-# Speechify TrustLoop
+# S TrustLoop
 
 ## Overview
 
-Speechify TrustLoop is a zero-budget, local-first reliability engine for AI-generated summaries, quizzes, podcast scripts, meeting notes, document answers, and work reports.
+S TrustLoop is a zero-budget, local-first reliability engine for AI-generated summaries, quizzes, podcast scripts, meeting notes, document answers, and work reports.
 
 It answers the question that appears after generation: **Can I trust this output, and can it show me why?**
 
-TrustLoop breaks an output into claims, retrieves relevant source chunks, classifies support, detects missing topics, calculates transparent quality metrics, and learns from human feedback.
+S TrustLoop is an independent prototype for voice-first AI reliability. It explores how voice-first AI products can make generated outputs more grounded, reviewable, and trustworthy.
 
-> This project does not clone Speechify's voice models. It complements Speechify's voice-first AI direction by adding reliability, grounding, evaluation, feedback, and analytics.
+S TrustLoop breaks an output into claims, retrieves relevant source chunks, classifies support, detects missing topics, calculates transparent quality metrics, and learns from human feedback.
+
+> S TrustLoop is an independent prototype. It is not affiliated with, endorsed by, or integrated with any commercial voice-AI platform. It focuses on reliability, grounding, evaluation, feedback, and analytics for voice-first AI workflows.
 
 ## Why This Matters
 
 Voice-first AI makes information easier to consume and work easier to produce. That convenience also makes confident omissions and hallucinations harder to notice. Consumer learners need comprehension checks; professionals need traceable meeting notes; enterprise teams need citations, auditability, privacy, and human review signals.
 
-TrustLoop makes those requirements visible and measurable.
+S TrustLoop makes those requirements visible and measurable.
 
-## How It Connects to Speechify
+## How This Applies to Voice-First AI Products
 
 The prototype supports a clear product story:
 
-- Speechify learning outputs become grounded summaries and source-relevant quizzes.
+- Voice-first learning outputs become grounded summaries and source-relevant quizzes.
 - AI podcasts expose coverage gaps and retain links to source evidence.
 - Meeting notes make decisions, owners, dates, and risks auditable.
-- Speechify Work-style reports gain an enterprise quality and feedback layer.
+- AI-agent reports gain an enterprise quality and feedback layer.
 
 ## Features
 
@@ -37,7 +39,7 @@ The prototype supports a clear product story:
 - Portfolio analytics by output type
 - Browser speech synthesis for output preview
 - Three guided one-click demo flows
-- Deliberately incorrect negative tests that demonstrate TrustLoop catching failures
+- Deliberately incorrect negative tests that demonstrate S TrustLoop catching failures
 
 ## Architecture
 
@@ -65,13 +67,13 @@ See [docs/architecture.md](docs/architecture.md).
 - Browser SpeechSynthesis API
 - Pytest
 
-No OpenAI, Speechify, ElevenLabs, or other paid API is required.
+No paid AI, voice, or cloud API is required.
 
 ## Demo Flows
 
 1. **Student learning:** generate a grounded summary or quiz, inspect missing concepts, then view the learner's weak-topic memory.
 2. **Meeting notes:** generate decisions and action items, inspect evidence, then open the incorrect seeded notes to see wrong dates, owners, and requirements flagged.
-3. **Speechify Work:** generate a strategic market report, inspect claim evidence, and open the portfolio analytics dashboard.
+3. **AI work report:** generate a strategic market report, inspect claim evidence, and open the portfolio analytics dashboard.
 
 The full talk track is in [docs/demo-script.md](docs/demo-script.md).
 
@@ -183,7 +185,7 @@ Captured from a live local run with seeded demo data (see [docs/screenshots/](do
 | --- | --- |
 | ![High trust card](docs/screenshots/03-high-trust-card.png) | ![Claim evidence](docs/screenshots/04-claim-evidence.png) |
 
-| Low-trust negative test (27) | Missing-topics coverage gaps |
+| Wrong meeting-notes test (56) | Incomplete podcast coverage gaps (27) |
 | --- | --- |
 | ![Low trust negative test](docs/screenshots/05-low-trust-negative-test.png) | ![Missing topics](docs/screenshots/06-missing-topics.png) |
 
@@ -206,5 +208,4 @@ Captured from a live local run with seeded demo data (see [docs/screenshots/](do
 
 ## Resume Positioning
 
-> Built Speechify TrustLoop, a zero-budget AI reliability engine that evaluates summaries, quizzes, AI podcast scripts, meeting notes, and agent-generated reports for source grounding, coverage, hallucination risk, citation quality, missing topics, and user feedback using FastAPI, SQLite, retrieval, Next.js, and analytics dashboards.
-
+> Built S TrustLoop, a zero-budget AI reliability engine that evaluates summaries, quizzes, AI podcast scripts, meeting notes, and agent-generated reports for source grounding, coverage, hallucination risk, citation quality, missing topics, and user feedback using FastAPI, SQLite, retrieval, Next.js, and analytics dashboards.

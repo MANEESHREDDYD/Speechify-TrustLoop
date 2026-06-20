@@ -3,8 +3,13 @@ import "./globals.css";
 import AppShell from "@/components/AppShell";
 
 export const metadata: Metadata = {
-  title: "Speechify TrustLoop",
-  description: "AI reliability engine for voice-first learning, meetings, podcasts, and work agents.",
+  title: "S TrustLoop",
+  description: "Independent AI reliability engine for voice-first learning, meetings, podcasts, and work agents.",
+  openGraph: {
+    title: "S TrustLoop",
+    description: "S TrustLoop is an independent prototype for voice-first AI reliability.",
+    type: "website",
+  },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
@@ -14,4 +19,3 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     </html>
   );
 }
-

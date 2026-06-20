@@ -1,4 +1,4 @@
-# TrustLoop Backend
+# S TrustLoop Backend
 
 ```bash
 python -m venv .venv
@@ -7,5 +7,4 @@ pip install -r requirements.txt
 uvicorn app.main:app --reload
 ```
 
-The API runs at `http://localhost:8000`; interactive docs are at `/docs`.
-
+The independent S TrustLoop API runs at `http://localhost:8000`; interactive docs are at `/docs`.

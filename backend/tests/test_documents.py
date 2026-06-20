@@ -6,7 +6,7 @@ from app.services.chunker import chunk_document
 def test_health_check(client):
     response = client.get("/health")
     assert response.status_code == 200
-    assert response.json() == {"status": "ok", "service": "speechify-trustloop-backend"}
+    assert response.json() == {"status": "ok", "service": "s-trustloop-backend"}
 
 
 def test_seed_demo_data(client):
@@ -31,4 +31,3 @@ def test_chunk_document():
     chunks = chunk_document(text, max_chars=60, overlap=10)
     assert len(chunks) >= 2
     assert chunks[0]["section_title"].lower().startswith("section 1")
-

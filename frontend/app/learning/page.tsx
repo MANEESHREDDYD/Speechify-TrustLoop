@@ -35,7 +35,7 @@ export default function LearningPage() {
       <PageHeader
         eyebrow="Personalized learning memory"
         title="What the learner knows"
-        description="TrustLoop turns evaluation gaps and quiz activity into a private, inspectable memory of strong and weak topics."
+        description="S TrustLoop turns evaluation gaps and quiz activity into a private, inspectable memory of strong and weak topics."
         actions={<button className="secondary-button" onClick={() => load(true)}><RefreshCw size={16} /> Recompute memory</button>}
       />
       {!memory ? <LoadingState /> : (
@@ -88,4 +88,3 @@ export default function LearningPage() {
     </div>
   );
 }
-

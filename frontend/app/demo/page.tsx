@@ -39,7 +39,7 @@ const flows = [
     key: "work",
     icon: Bot,
     number: "03",
-    title: "Speechify Work",
+    title: "AI work report",
     message: "Add a quality layer behind finished agent work.",
     documentTitle: "Voice-first Productivity Market Analysis",
     outputType: "work_report",
@@ -84,7 +84,7 @@ export default function DemoPage() {
     <div className="page">
       <PageHeader
         eyebrow="3-minute product story"
-        title="Guided TrustLoop demo"
+        title="Guided S TrustLoop demo"
         description="Three one-click flows showing how reliability changes learning, meetings, and AI-generated work."
         actions={<button className="secondary-button" onClick={reset} disabled={!!busy}><Database size={16} /> Reset clean demo</button>}
       />
@@ -125,7 +125,7 @@ export default function DemoPage() {
             <div className="negative-icon"><AlertTriangle size={23} /></div>
             <div>
               <span className="eyebrow">The proof moment</span>
-              <h2>Can TrustLoop catch confident, wrong notes?</h2>
+              <h2>Can S TrustLoop catch confident, wrong notes?</h2>
               <p>The seeded negative test changes the launch date, assigns work to the wrong people, and removes a required privacy review.</p>
             </div>
             <div className="negative-tags"><span>Wrong date</span><span>Wrong owners</span><span>Contradicted requirement</span></div>
@@ -138,4 +138,3 @@ export default function DemoPage() {
     </div>
   );
 }
-

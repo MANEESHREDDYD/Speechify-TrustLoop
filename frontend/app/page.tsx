@@ -22,7 +22,7 @@ const products = [
   },
   {
     icon: Bot,
-    eyebrow: "Speechify Work",
+    eyebrow: "AI work reports",
     title: "A quality layer for finished deliverables",
     text: "Evaluate agent-created reports for evidence, coverage, citations, and enterprise reliability.",
     stat: "Enterprise ready",
@@ -34,9 +34,9 @@ export default function Home() {
     <div className="landing">
       <section className="hero">
         <div className="hero-copy">
-          <div className="eyebrow"><span className="pulse-dot" /> Local-first AI reliability engine</div>
-          <h1>Make every AI output<br /><span>worthy of trust.</span></h1>
-          <p>Ground every summary, quiz, podcast, meeting note, and work-agent report in source evidence—then make the quality measurable.</p>
+          <div className="eyebrow"><span className="pulse-dot" /> Independent local-first prototype</div>
+          <h1>S <span>TrustLoop.</span></h1>
+          <p><strong>AI Reliability Engine for Voice-first Learning, Meetings, and Work Agents.</strong> Ground every summary, quiz, podcast, meeting note, and AI-agent report in source evidence—then make the quality measurable.</p>
           <LandingActions />
           <div className="hero-proof">
             <span><CheckCircle2 size={14} /> No paid APIs</span>
@@ -72,7 +72,7 @@ export default function Home() {
       <section className="landing-section">
         <div className="section-intro">
           <div><span className="eyebrow">One reliability layer</span><h2>Built for where voice AI is going.</h2></div>
-          <p>TrustLoop does not clone Speechify’s voice models. It complements the move into AI-generated learning and work by evaluating what those systems produce.</p>
+          <p>S TrustLoop is an independent prototype for voice-first AI reliability. It evaluates generated learning and work outputs without affiliation with or integration into any commercial platform.</p>
         </div>
         <div className="product-grid">
           {products.map(({ icon: Icon, ...item }, index) => (
@@ -90,10 +90,9 @@ export default function Home() {
 
       <section className="cta-band">
         <div><Headphones size={24} /><span>Ready for the 3-minute story?</span></div>
-        <h2>See TrustLoop catch a confident, wrong meeting summary.</h2>
+        <h2>See S TrustLoop catch a confident, wrong meeting summary.</h2>
         <Link href="/demo" className="light-button">Open guided demo <ArrowUpRight size={16} /></Link>
       </section>
     </div>
   );
 }
-

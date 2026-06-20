@@ -19,7 +19,7 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
       <aside className="sidebar">
         <Link href="/" className="brand">
           <span className="brand-mark"><ShieldCheck size={20} /></span>
-          <span><b>TrustLoop</b><small>by Speechify concept</small></span>
+          <span><b>S TrustLoop</b><small>Independent prototype</small></span>
         </Link>
         <nav>
           {links.map(({ href, label, icon: Icon }) => (
@@ -29,10 +29,9 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
           ))}
         </nav>
         <div className="local-pill"><span /> Local-first engine</div>
-        <p className="sidebar-note">No paid APIs. No cloud dependency. Every score is inspectable.</p>
+        <p className="sidebar-note">Independent voice-AI reliability research. No paid APIs or cloud dependency.</p>
       </aside>
       <main className="main">{children}</main>
     </div>
   );
 }
-

@@ -15,8 +15,8 @@ async def lifespan(_: FastAPI):
 
 
 app = FastAPI(
-    title="Speechify TrustLoop API",
-    description="Local-first reliability and feedback layer for voice-first AI outputs.",
+    title="S TrustLoop API",
+    description="S TrustLoop is an independent prototype for voice-first AI reliability.",
     version="1.0.0",
     lifespan=lifespan,
 )
@@ -37,5 +37,4 @@ for router in (
 
 @app.get("/health")
 def health():
-    return {"status": "ok", "service": "speechify-trustloop-backend"}
-
+    return {"status": "ok", "service": "s-trustloop-backend"}

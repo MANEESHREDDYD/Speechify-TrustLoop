@@ -1,6 +1,6 @@
 # Trust Score Methodology
 
-TrustLoop exposes a transparent composite score rather than a black-box confidence number.
+S TrustLoop exposes a transparent composite score rather than a black-box confidence number.
 
 - Grounding (35%): supported claims plus half credit for weak support.
 - Coverage (25%): important source topics represented in the output.
@@ -10,4 +10,3 @@ TrustLoop exposes a transparent composite score rather than a black-box confiden
 - Task fit (5%): action-item quality for meetings or question relevance for quizzes.
 
 Contradicted and unsupported claims separately increase hallucination risk. Scores are heuristics for prioritizing human review, not proof of factual correctness.
-
