@@ -1,0 +1,9 @@
+# Usability Test Summary
+
+The study included twenty participants drawn from students and faculty.
+
+Ten participants renewed a book without help, while eight booked a room without help.
+
+Five participants mistakenly opened the events calendar when looking for room booking on a small screen.
+
+The team recommends adding a mobile home-screen booking button and testing its label again.

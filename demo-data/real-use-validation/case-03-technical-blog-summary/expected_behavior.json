@@ -1,0 +1,14 @@
+{
+  "case_name": "Technical summary with an unsupported guarantee",
+  "output_type": "summary",
+  "human_label": "mixed",
+  "expected_score_band": "medium",
+  "should_be_high_trust": false,
+  "expected_missing_topics": [],
+  "expected_unsupported_claims": [
+    "The queue automatically guarantees exactly-once processing for every job, even during worker crashes."
+  ],
+  "expected_contradictions": [],
+  "paraphrase_case": false,
+  "notes": "Three claims are grounded. The exactly-once guarantee is invented and should be clearly flagged."
+}

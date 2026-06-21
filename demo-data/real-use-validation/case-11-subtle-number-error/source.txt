@@ -1,0 +1,13 @@
+Title: Library Usability Test Results
+
+Section 1: Participants
+The usability study included twelve participants: six undergraduate students, four graduate students, and two faculty members.
+
+Section 2: Task Completion
+Ten participants completed the book-renewal task without help. Eight completed the room-booking task without help.
+
+Section 3: Main Finding
+The most common problem was locating the room-booking link on small screens. Five participants first opened the events calendar instead.
+
+Section 4: Recommendation
+The team recommends placing a room-booking button on the mobile home screen and testing the revised label with another small group.

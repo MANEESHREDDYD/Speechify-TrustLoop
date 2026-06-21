@@ -1,0 +1,16 @@
+Title: Account Export Product Requirements
+
+Section 1: User Flow
+An account owner can request a downloadable archive from the privacy settings page. The interface must show that preparation can take up to twenty-four hours.
+
+Section 2: File Contents
+The archive includes profile details, uploaded files, activity history, and consent records. Internal fraud-review notes are excluded.
+
+Section 3: Security
+The download link expires after forty-eight hours and requires the user to sign in again. The archive must be encrypted while stored.
+
+Section 4: Ownership
+Elena owns the interface design and confirmation messages. Marcus owns archive generation, encryption, and link expiration.
+
+Section 5: Launch Gate
+The feature cannot launch until security testing and accessibility review are complete.

@@ -1,7 +1,7 @@
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
-from app.models import AIOutput, ClaimCheck, Document, EvaluationRun, MissingTopic
+from app.models import AIOutput, ClaimCheck, Document, DocumentChunk, EvaluationRun, MissingTopic
 from app.services.claim_checker import classify_claim, split_into_claims
 from app.services.retrieval import retrieve_top_k
 from app.services.topic_extractor import detect_missing_topics, extract_topics
@@ -111,3 +111,43 @@ def trust_card(session: Session, output_id: str) -> dict | None:
         "contradicted_claims": counts["contradicted"],
         "missing_topics_count": missing_count,
     }
+
+
+def claim_results(session: Session, output_id: str) -> list[dict]:
+    evaluation = latest_evaluation(session, output_id)
+    if not evaluation:
+        return []
+    claims = session.scalars(
+        select(ClaimCheck).where(ClaimCheck.evaluation_run_id == evaluation.id)
+    ).all()
+    result = []
+    for claim in claims:
+        chunk = session.get(DocumentChunk, claim.supporting_chunk_id) if claim.supporting_chunk_id else None
+        result.append({
+            "id": claim.id,
+            "claim_text": claim.claim_text,
+            "status": claim.status,
+            "confidence": claim.confidence,
+            "supporting_chunk_id": claim.supporting_chunk_id,
+            "supporting_text": claim.supporting_text,
+            "section_title": chunk.section_title if chunk else None,
+            "page_number": chunk.page_number if chunk else None,
+        })
+    return result
+
+
+def missing_topic_results(session: Session, output_id: str) -> list[dict]:
+    evaluation = latest_evaluation(session, output_id)
+    if not evaluation:
+        return []
+    return [
+        {
+            "id": item.id,
+            "topic": item.topic,
+            "importance_score": item.importance_score,
+            "reason": item.reason,
+        }
+        for item in session.scalars(
+            select(MissingTopic).where(MissingTopic.evaluation_run_id == evaluation.id)
+        ).all()
+    ]

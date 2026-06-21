@@ -1,0 +1,11 @@
+# Account Export Requirements
+
+Account owners request an archive from privacy settings, and preparation may take up to twenty-four hours.
+
+The archive contains profile details, uploaded files, activity history, and consent records but excludes internal fraud-review notes.
+
+Links expire after forty-eight hours, require another sign-in, and the stored archive is encrypted.
+
+Marcus owns the interface design and confirmation messages. Elena owns archive generation, encryption, and link expiration.
+
+Security testing and accessibility review are required before launch.

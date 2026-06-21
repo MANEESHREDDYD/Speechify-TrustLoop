@@ -1,0 +1,12 @@
+{
+  "case_name": "Good strongly paraphrased summary",
+  "output_type": "summary",
+  "human_label": "good",
+  "expected_score_band": "high",
+  "should_be_high_trust": true,
+  "expected_missing_topics": [],
+  "expected_unsupported_claims": [],
+  "expected_contradictions": [],
+  "paraphrase_case": true,
+  "notes": "Every claim preserves the source meaning, but vocabulary is deliberately changed to reveal lexical under-rating."
+}

@@ -40,6 +40,7 @@ The frontend asks for confirmation before user-triggered replacement. Direct API
 - Demo topic-memory signals and recap prompts
 - Browser speech synthesis for output preview
 - Three guided demo flows
+- Manual audit mode for externally generated outputs
 
 ## Architecture
 
@@ -111,6 +112,7 @@ Key routes:
 - `GET /health`
 - `POST /api/demo/seed`
 - `DELETE /api/demo/reset`
+- `POST /api/audit/manual`
 - `GET /api/documents`
 - `POST /api/documents/upload`
 - `DELETE /api/documents/{document_id}`
@@ -170,6 +172,27 @@ The previous interactive `next lint` script was removed because ESLint is not co
 The negative tests are synthetic and intentionally easy to detect. They demonstrate the interface and rule behavior; they do not prove generalization.
 
 See [docs/demo-script.md](docs/demo-script.md).
+
+## Real-Use Validation
+
+S TrustLoop includes a small real-use validation set under [`demo-data/real-use-validation`](demo-data/real-use-validation).
+
+The set contains twelve self-written, non-sensitive source/output pairs with human-written expected behavior labels. It includes grounded outputs, paraphrases, omissions, unsupported claims, wrong dates, wrong numbers, swapped owners, an oversimplified podcast, and an unrelated answer.
+
+It is designed to expose limitations, not to prove production reliability.
+
+Current verdict: **B. Works only as a portfolio prototype, not ready for targeted outreach.**
+
+Corrected results after fixing a validation-runner classification bug:
+
+- 5 passed
+- 2 mixed
+- 5 failed
+- 58.3% pass-or-mixed
+- 0 of 2 expected contradiction cases detected
+- 1 good paraphrase severely underrated
+
+No evaluator thresholds or human labels were changed after observing the results. See the complete [real-use validation report](docs/validation/real-use-validation-report.md).
 
 ## Screenshots
 

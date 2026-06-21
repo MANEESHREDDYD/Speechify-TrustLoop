@@ -1,0 +1,14 @@
+{
+  "case_name": "Subtle wrong participant count",
+  "output_type": "summary",
+  "human_label": "mixed",
+  "expected_score_band": "medium",
+  "should_be_high_trust": false,
+  "expected_missing_topics": [],
+  "expected_unsupported_claims": [
+    "The study included twenty participants drawn from students and faculty."
+  ],
+  "expected_contradictions": [],
+  "paraphrase_case": false,
+  "notes": "The output changes twelve participants to twenty while preserving the rest of the findings."
+}

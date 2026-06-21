@@ -1,0 +1,14 @@
+Title: Neighborhood App Release Planning
+
+Attendees:
+Elena - Product Manager
+Marcus - Engineering Lead
+Tariq - Support Lead
+
+Transcript:
+Elena: The release date is September 12, and we will begin with invited pilot users.
+Marcus: I will finish the account export tool by September 5.
+Tariq: I will prepare the support response guide by September 8.
+Elena: The team decided that the accessibility review is required before the pilot invitation is sent.
+Marcus: The main risk is that the export process may time out for accounts with more than ten thousand records.
+Tariq: Support needs a visible status message when an export is still processing.

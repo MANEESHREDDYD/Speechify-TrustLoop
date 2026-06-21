@@ -1,0 +1,12 @@
+{
+  "case_name": "Good external meeting notes",
+  "output_type": "meeting_notes",
+  "human_label": "good",
+  "expected_score_band": "high",
+  "should_be_high_trust": true,
+  "expected_missing_topics": [],
+  "expected_unsupported_claims": [],
+  "expected_contradictions": [],
+  "paraphrase_case": false,
+  "notes": "The decision, owners, dates, requirement, and risk are all grounded in the transcript."
+}

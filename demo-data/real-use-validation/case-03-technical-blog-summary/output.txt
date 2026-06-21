@@ -1,0 +1,9 @@
+# Background Job Summary
+
+A job queue lets the web request return before slow work finishes.
+
+Workers should retry failed tasks with exponential backoff and should use idempotency keys to prevent duplicate side effects.
+
+The queue automatically guarantees exactly-once processing for every job, even during worker crashes.
+
+Teams should monitor queue depth, job age, failures, and latency.

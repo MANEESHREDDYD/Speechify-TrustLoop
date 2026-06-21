@@ -1,0 +1,15 @@
+{
+  "case_name": "Incomplete health guidance summary",
+  "output_type": "summary",
+  "human_label": "mixed",
+  "expected_score_band": "medium",
+  "should_be_high_trust": false,
+  "expected_missing_topics": [
+    "medication",
+    "urgent symptoms"
+  ],
+  "expected_unsupported_claims": [],
+  "expected_contradictions": [],
+  "paraphrase_case": false,
+  "notes": "The included advice is grounded, but omitting medication cautions and urgent symptoms is meaningful."
+}

@@ -1,0 +1,13 @@
+# Meeting Notes
+
+## Decision
+The invited-user pilot will launch on September 12 after the required accessibility review.
+
+## Action Items
+| Owner | Task | Due Date |
+|---|---|---|
+| Marcus | Finish the account export tool | September 5 |
+| Tariq | Prepare the support response guide | September 8 |
+
+## Risks
+Exports for accounts with more than ten thousand records may time out, and users need a visible processing status.

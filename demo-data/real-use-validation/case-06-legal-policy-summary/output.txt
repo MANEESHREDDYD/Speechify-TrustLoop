@@ -1,0 +1,7 @@
+# Volunteer Data Policy
+
+Volunteers should collect only the participant information needed to organize an event.
+
+Only the event coordinator and privacy lead may download participant lists, while check-in volunteers may view but not copy them.
+
+Suspected unauthorized access or a lost device must be reported within twenty-four hours.

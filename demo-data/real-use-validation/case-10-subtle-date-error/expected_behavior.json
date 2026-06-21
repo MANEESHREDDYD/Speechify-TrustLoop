@@ -1,0 +1,14 @@
+{
+  "case_name": "Subtle wrong workshop date",
+  "output_type": "key_points",
+  "human_label": "mixed",
+  "expected_score_band": "medium",
+  "should_be_high_trust": false,
+  "expected_missing_topics": [],
+  "expected_unsupported_claims": [],
+  "expected_contradictions": [
+    "The workshop will take place on July 17 from nine in the morning until three in the afternoon."
+  ],
+  "paraphrase_case": false,
+  "notes": "Only one date is wrong. A useful review should flag that claim without treating the entire output as unrelated."
+}

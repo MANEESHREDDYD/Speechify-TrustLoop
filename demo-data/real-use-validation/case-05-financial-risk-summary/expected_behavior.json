@@ -1,0 +1,14 @@
+{
+  "case_name": "Financial summary with false safety conclusion",
+  "output_type": "summary",
+  "human_label": "mixed",
+  "expected_score_band": "medium",
+  "should_be_high_trust": false,
+  "expected_missing_topics": [],
+  "expected_unsupported_claims": [
+    "The company can safely buy the twelve-thousand-dollar equipment immediately because three months of cash guarantees there is no liquidity risk."
+  ],
+  "expected_contradictions": [],
+  "paraphrase_case": false,
+  "notes": "The factual figures are correct, but the final conclusion reverses the source recommendation and invents a guarantee."
+}

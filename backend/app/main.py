@@ -3,7 +3,7 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from app.api import analytics, demo, documents, evaluation, feedback, generation, learning
+from app.api import analytics, audit, demo, documents, evaluation, feedback, generation, learning
 from app.config import FRONTEND_ORIGIN
 from app.database import init_db
 
@@ -16,7 +16,7 @@ async def lifespan(_: FastAPI):
 
 app = FastAPI(
     title="S TrustLoop API",
-    description="S TrustLoop is an independent prototype for voice-first AI reliability.",
+    description="S TrustLoop is an independent local prototype for lexical and rule-based source review.",
     version="1.0.1",
     lifespan=lifespan,
 )
@@ -29,7 +29,7 @@ app.add_middleware(
 )
 
 for router in (
-    demo.router, documents.router, generation.router, evaluation.router,
+    demo.router, audit.router, documents.router, generation.router, evaluation.router,
     feedback.router, learning.router, analytics.router,
 ):
     app.include_router(router)

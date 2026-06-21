@@ -1,0 +1,15 @@
+{
+  "case_name": "Policy summary missing retention and appeal rights",
+  "output_type": "summary",
+  "human_label": "mixed",
+  "expected_score_band": "medium",
+  "should_be_high_trust": false,
+  "expected_missing_topics": [
+    "retention",
+    "appeals"
+  ],
+  "expected_unsupported_claims": [],
+  "expected_contradictions": [],
+  "paraphrase_case": false,
+  "notes": "The output is accurate but materially incomplete because deletion timing and review rights are absent."
+}

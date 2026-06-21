@@ -1,0 +1,15 @@
+{
+  "case_name": "Completely unrelated document answer",
+  "output_type": "ask_document",
+  "human_label": "bad",
+  "expected_score_band": "low",
+  "should_be_high_trust": false,
+  "expected_missing_topics": [],
+  "expected_unsupported_claims": [
+    "The capital of Mars is Ares City, a settlement established in 2042 near the planet's equator.",
+    "The document confirms that Ares City became the Martian capital in 2042."
+  ],
+  "expected_contradictions": [],
+  "paraphrase_case": false,
+  "notes": "The answer is unrelated to the gardening source and should be unsupported. The separate live Q&A path should abstain before creating such an answer."
+}

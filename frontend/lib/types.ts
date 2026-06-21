@@ -57,3 +57,11 @@ export type MissingTopic = {
   reason: string;
 };
 
+export type ManualAuditResult = {
+  document_id: string;
+  output_id: string;
+  evaluation_id: string;
+  trust_card: TrustCardData;
+  claim_checks: Claim[];
+  missing_topics: MissingTopic[];
+};

@@ -13,6 +13,22 @@ class AskRequest(GenerationRequest):
     prompt: str = Field(min_length=2)
 
 
+class ManualAuditRequest(BaseModel):
+    user_id: str = "demo-user"
+    source_title: str = Field(min_length=1, max_length=160)
+    source_text: str = Field(min_length=20)
+    output_type: Literal[
+        "summary",
+        "key_points",
+        "quiz",
+        "podcast_script",
+        "meeting_notes",
+        "work_report",
+        "ask_document",
+    ]
+    generated_text: str = Field(min_length=20)
+
+
 class FeedbackRequest(BaseModel):
     user_id: str = "demo-user"
     output_id: str

@@ -1,0 +1,13 @@
+Title: Background Jobs in a Small Web Service
+
+Section 1: Queue
+A background job queue allows an HTTP request to finish before slow work is complete. The application records a job, returns a job identifier, and lets a worker process the task later.
+
+Section 2: Retries
+Retries should use exponential backoff and a maximum attempt count. Retrying forever can overload a failing dependency and hide permanent errors.
+
+Section 3: Idempotency
+Workers should use an idempotency key when a job can be delivered more than once. This prevents duplicate invoices, emails, or account changes.
+
+Section 4: Monitoring
+Teams should monitor queue depth, job age, failure count, and processing latency. Alerts should distinguish a temporary backlog from jobs that are permanently failing.

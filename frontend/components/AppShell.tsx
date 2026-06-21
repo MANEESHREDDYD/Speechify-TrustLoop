@@ -2,11 +2,12 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { BarChart3, BookOpen, BrainCircuit, FlaskConical, Home, ShieldCheck } from "lucide-react";
+import { BarChart3, BookOpen, BrainCircuit, FileSearch, FlaskConical, Home, ShieldCheck } from "lucide-react";
 
 const links = [
   { href: "/", label: "Overview", icon: Home },
   { href: "/library", label: "Library", icon: BookOpen },
+  { href: "/audit", label: "Manual audit", icon: FileSearch },
   { href: "/demo", label: "Guided demo", icon: FlaskConical },
   { href: "/learning", label: "Learning", icon: BrainCircuit },
   { href: "/analytics", label: "Analytics", icon: BarChart3 },

@@ -1,0 +1,15 @@
+{
+  "case_name": "Product requirements with swapped owners",
+  "output_type": "summary",
+  "human_label": "mixed",
+  "expected_score_band": "medium",
+  "should_be_high_trust": false,
+  "expected_missing_topics": [],
+  "expected_unsupported_claims": [],
+  "expected_contradictions": [
+    "Marcus owns the interface design and confirmation messages.",
+    "Elena owns archive generation, encryption, and link expiration."
+  ],
+  "paraphrase_case": false,
+  "notes": "All product requirements are correct except the two owners are swapped. A general detector should not depend on a fixed demo-name list."
+}

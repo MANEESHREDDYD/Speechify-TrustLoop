@@ -1,6 +1,6 @@
 import re
 
-from app.utils.text_utils import sentences, slug_title, top_terms
+from app.utils.text_utils import sentences, slug_title, top_terms, words
 
 
 def _sections(text: str) -> list[tuple[str, str]]:
@@ -150,15 +150,18 @@ def generate_work_report(document_text: str) -> str:
 
 
 def answer_document_question(document_text: str, question: str) -> str:
-    q_terms = set(re.findall(r"[A-Za-z]{3,}", question.lower()))
+    q_terms = set(words(question))
     ranked = sorted(
-        sentences(document_text),
-        key=lambda sentence: len(q_terms & set(re.findall(r"[A-Za-z]{3,}", sentence.lower()))),
+        (
+            (len(q_terms & set(words(sentence))), sentence)
+            for sentence in sentences(document_text)
+        ),
+        key=lambda item: item[0],
         reverse=True,
     )
-    evidence = ranked[:2]
-    if not evidence:
-        return "# Answer\n\nThe source does not contain enough information to answer that question."
+    if not ranked or not q_terms or ranked[0][0] == 0:
+        return "# Answer\n\nI could not find enough support for that answer in the document."
+    evidence = [sentence for overlap, sentence in ranked[:2] if overlap > 0]
     return "# Answer\n\n" + " ".join(evidence) + "\n\n## Evidence basis\n- " + "\n- ".join(evidence)
 
 

@@ -1,0 +1,12 @@
+{
+  "case_name": "Good grounded student policy summary",
+  "output_type": "summary",
+  "human_label": "good",
+  "expected_score_band": "high",
+  "should_be_high_trust": true,
+  "expected_missing_topics": [],
+  "expected_unsupported_claims": [],
+  "expected_contradictions": [],
+  "paraphrase_case": false,
+  "notes": "A useful evaluator should treat the four policy claims as supported and avoid inventing coverage gaps."
+}

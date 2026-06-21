@@ -1,0 +1,17 @@
+{
+  "case_name": "Oversimplified public-service podcast",
+  "output_type": "podcast_script",
+  "human_label": "mixed",
+  "expected_score_band": "medium",
+  "should_be_high_trust": false,
+  "expected_missing_topics": [
+    "limitations",
+    "privacy"
+  ],
+  "expected_unsupported_claims": [
+    "The program makes cooling support easy for everyone in every neighborhood."
+  ],
+  "expected_contradictions": [],
+  "paraphrase_case": false,
+  "notes": "The podcast covers benefits but omits capacity, coverage, and privacy limitations while making an overbroad access claim."
+}
